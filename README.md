@@ -1,51 +1,48 @@
-# Android Case Study
+# DealsSearch App
 
-You have been given control over an Android project that was originally a proof-of-concept project.
-The original developer of the project has since moved on to a new team, and Target has asked you to
-turn the project into an application that the company could release to the public.
+## Background
+This app is intended to allow users to search for current deals on products they may enjoy. For the initial version of the app this functionality is limited to just showing the current deals at the time.
 
-The goal of the app is to display a list of deals currently offered by Target, and to provide
-information on those deals. As a POC, the app has a few deals hardcoded in and the code is
-pretty rough. It is your job to turn this app into something useful!
+## App Highlights
 
-**Requirements:**
-1. Fix up the deals list to match the mockups shown in mockups/DealsList.png.
-  Fonts, specific colors, and specific margins are not important, but you should aim to to get close.
+1. **Deals List**
+    * When you open the app the latest deals will be loaded into a list
+    * Each deal will show the regular price, sale price (if applicable) and an option to ship the item or find it in a store
+    * If an item has an image it will display on the left
+2. **Deal Details**
+    * Clicking a deal will show more details about a deal, which includes a thorough description of the deal
+3. **Credit Card Validation**
+    * Clicking the credit card icon in the toolbar will open a dialog that prompts for credit card entry
+    * The submit button of the dialog will be disabled until you type in a valid credit card
+4. **Dark Mode Support!**
+    * Added simple themes to leverage Android support of dark mode and created specific colors for use in dark mode
 
-2. Present a new view that displays deal details when a deal is clicked on the list screen.
-  Use the mockups shown in mockups/DealsDetails.png. Again, specific sizing and other design details
-  are not important.
+## Libraries/APIs Used
 
-3. The deals are currently hardcoded. Use the API at https://api.target.com/mobile_case_study_deals/v1
-  to grab the real deals to display in the app.
+* **Android Architecture Components**
+    * Coroutines were used to simplify the threading model of the app (primarily to fetch data from the Deals API
+    * LiveData was used to pas data from the ViewModel to the View
+    * The Navigation component was used to simplify the transitions between screens and facilitate passing data across fragments using SafeArgs
+* **Hilt/Dagger**
+    * Used the newly stable Hilt library build on Dagger for dependency injection to inject relevant classes into the ViewModels, Repositories, etc
+* **Glide**
+    * Used to download deal images from the network
+* **Retrofit**
+    * Used as a networking layer to interact with the Deals API
+* **Gson**
+    * Used Retrofit's Gson parser to parse JSON responses into Kotlin model objects
+* **Kotlin**
+    * Used to reduce boilerplate code and reduce nullability issues
 
-4. Update PaymentDialogFragment to perform credit card number validation:
-     - See Validators.kt under the `data` package for instructions on performing the validation,
-       including  help on getting fake credit card numbers. You do *not* need to enter real credit
-       card data.
+## Issues Encountered
+* I experienced issues with the linked documentation for the credit card validation algorithm -- upon further searching I found the step I was missing
+* I experienced a data binding compile issue that forced me to clean the repo before building in certain cases
+* I had trouble getting a UI test framework set up using the new HiltTestRule
 
-       You are welcome to make any changes to `Validators.kt` as you see fit within the guidelines
-       noted in the documentation in that file.
-     - When a valid number has been entered, the "submit" button should be enabled. When the number
-       is invalid, the "submit" button should be disabled.
-     - You do *not* need to make any changes to the dialog layout, but you are welcome to do so if
-       you wish.
-
-5. ***Optional:*** Do something interesting! Add something to the app you think can really make it
-  fun to use or showcases a particular skill you have. Maybe you love creating animations and want
-  to show that off, or you are really excited about a new library and you just want to experiment
-  with it. You will not be evaluated on whether or not you add extra functionality, but it
-  can be a good way to start a discussion and highlight something you are passionate about.
-
-Some guidelines:
-- Feel free to use any open source software you wish. Be prepared to answer questions about *why*
-  you chose any libraries that you add to the project.
-- Treat this app as something you control technically. The way you chose to architect your
-  solution will be a key aspect of  the case study review.
-- Do your best to follow modern Android conventions and write clean, performant, and extensible code.
-  Imagine that this app will continue to grow after you are done- how would another developer
-  add additional screens or other functionality?
-- While writing tests is not a requirement, be prepared to discuss how you would approach testing
-  this project during the review. Having tests is one way to kickstart that discussion and showcase
-  your approach.
-- Be sure the app looks great on a variety of screen sizes!
+## Roadmap/Future Improvements
+* Add additional unit tests for ViewModel and Repository classes
+* Add Espresso/UI tests to validate UI flows
+* Use a database to store deals and potentially add a mechanism to favorite/save them
+* Implement a retry mechanism for failed API calls (i.e exponential backoff)
+* Further UI and style improvements -- converting deals list to use Jetpack Compose
+* Add more information to the details screen
