@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dealItemContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/dealImage"
+        android:layout_width="@dimen/list_image_width"
+        android:layout_height="@dimen/list_image_height"
+        android:contentDescription="Item Image"
+        android:padding="@dimen/keyline_medium"
+        android:scaleType="centerCrop"
+        android:src="@drawable/outline_broken_image_black_48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/dealTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:layout_marginStart="@dimen/keyline_medium"
+        android:layout_marginEnd="@dimen/keyline_medium"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/centerGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dealImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Junior's Boyfriend V Tee" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/centerGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/gray_color"
+        app:layout_constraintBottom_toBottomOf="@id/centerGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/dealTitle"
+        app:layout_constraintTop_toTopOf="@id/centerGuideline" />
+
+    <TextView
+        android:id="@+id/salePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/keyline_medium"
+        android:layout_marginEnd="@dimen/keyline_medium"
+        android:textColor="@color/red_color"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dealImage"
+        app:layout_constraintTop_toBottomOf="@id/centerGuideline"
+        tools:text="$9.00" />
+
+    <TextView
+        android:id="@+id/regularPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/keyline_medium"
+        android:layout_marginEnd="@dimen/keyline_medium"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/salePrice"
+        app:layout_constraintStart_toEndOf="@id/salePrice"
+        app:layout_constraintTop_toTopOf="@id/salePrice"
+        tools:text="Reg: $9.00" />
+
+    <LinearLayout
+        android:id="@+id/orderContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/keyline_medium"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/centerGuideline">
+
+        <TextView
+            android:id="@+id/shipOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ship" />
+
+        <TextView
+            android:id="@+id/or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_xsmall"
+            android:text="@string/or"
+            android:textColor="@color/gray_color" />
+
+        <FrameLayout
+            android:id="@+id/aisleContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_xsmall">
+
+            <ImageView
+                android:id="@+id/aisleImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/aisle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/red_color"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/shipOption"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="B2" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

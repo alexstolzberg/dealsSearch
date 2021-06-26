@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Standard Keylines -->
+  <dimen name="keyline_xsmall">4dp</dimen>
+  <dimen name="keyline_small">8dp</dimen>
+  <dimen name="keyline_medium">16dp</dimen>
+
+  <!-- Deals List -->
+  <dimen name="list_image_width">120dp</dimen>
+  <dimen name="list_image_height">120dp</dimen>
+
+  <!-- Deal Details -->
+  <dimen name="deal_details_image_height">300dp</dimen>
+
+</resources>
