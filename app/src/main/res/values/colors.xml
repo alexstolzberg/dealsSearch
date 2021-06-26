@@ -4,6 +4,9 @@
   <color name="colorPrimaryDark">#AA0000</color>
   <color name="colorAccent">#008300</color>
 
+  <color name="white">#FFFFFF</color>
+  <color name="black">#000000</color>
+
   <color name="light_gray_color">#e0e0e0</color>
   <color name="light_gray_text_color">#5c5c5c</color>
   <color name="gray_color">#666666</color>
@@ -11,5 +14,4 @@
   <color name="red_color">#cc0000</color>
   <color name="light_red_color">#D37C7C</color>
 
-  <color name="white">#FFFFFF</color>
 </resources>

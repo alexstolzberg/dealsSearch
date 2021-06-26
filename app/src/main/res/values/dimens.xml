@@ -7,8 +7,8 @@
   <dimen name="keyline_medium">16dp</dimen>
 
   <!-- Deals List -->
-  <dimen name="list_image_width">120dp</dimen>
-  <dimen name="list_image_height">120dp</dimen>
+  <dimen name="list_image_width">100dp</dimen>
+  <dimen name="list_image_height">100dp</dimen>
 
   <!-- Deal Details -->
   <dimen name="deal_details_image_height">300dp</dimen>

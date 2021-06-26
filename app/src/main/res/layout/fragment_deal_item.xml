@@ -76,7 +76,6 @@
                 android:layout_marginStart="@dimen/keyline_medium"
                 android:layout_marginTop="@dimen/keyline_small"
                 android:layout_marginEnd="@dimen/keyline_medium"
-                android:textColor="#000000"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
