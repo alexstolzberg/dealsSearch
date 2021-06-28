@@ -1,93 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_deal_item_scene"
+    app:motionDebug="SHOW_ALL"
     tools:context=".ui.dealitem.DealItemFragment">
 
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/keyline_small"
-        app:layout_constraintBottom_toTopOf="@id/addToListButton"
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/deal_details_image_height"
+        android:contentDescription="Product Image"
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/productInfoContainer"
+    <TextView
+        android:id="@+id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/keyline_medium"
+        android:layout_marginTop="@dimen/keyline_medium"
+        android:textColor="@color/red_color"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productImage"
+        tools:text="$8.98" />
+
+    <TextView
+        android:id="@+id/productRegularPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/keyline_medium"
+        android:layout_marginEnd="@dimen/keyline_medium"
+        android:textColor="@color/gray_color"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productImage"
+        tools:text="Reg: $17.99"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/productTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/keyline_medium"
+        android:layout_marginTop="@dimen/keyline_medium"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productPrice"
+        tools:text="Tiered Lace Tank - Lily Star" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/descriptionScrollContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productTitle">
+
+        <TextView
+            android:id="@+id/productDescription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/productImage"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/deal_details_image_height"
-                android:contentDescription="Product Image"
-                android:src="@mipmap/ic_launcher_round"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="HardcodedText" />
-
-            <TextView
-                android:id="@+id/productPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/keyline_medium"
-                android:layout_marginTop="@dimen/keyline_medium"
-                android:textColor="@color/red_color"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/productImage"
-                tools:text="$8.98" />
-
-            <TextView
-                android:id="@+id/productRegularPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/keyline_medium"
-                android:layout_marginEnd="@dimen/keyline_medium"
-                android:textColor="@color/gray_color"
-                android:textSize="24sp"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/productImage"
-                tools:text="Reg: $17.99"
-                tools:visibility="visible" />
-
-            <TextView
-                android:id="@+id/productTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/keyline_medium"
-                android:layout_marginTop="@dimen/keyline_medium"
-                android:textSize="28sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/productPrice"
-                tools:text="Tiered Lace Tank - Lily Star" />
-
-            <TextView
-                android:id="@+id/productDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/keyline_medium"
-                android:layout_marginTop="@dimen/keyline_small"
-                android:layout_marginEnd="@dimen/keyline_medium"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/productTitle"
-                app:layout_constraintVertical_bias="1.0"
-                tools:text="Product Information" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/keyline_medium"
+            android:layout_marginTop="@dimen/keyline_small"
+            android:layout_marginEnd="@dimen/keyline_medium"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/productTitle"
+            tools:text="Product Information" />
+    </androidx.core.widget.NestedScrollView>
 
     <Button
         android:id="@+id/addToListButton"
@@ -121,4 +111,4 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/addToListButton" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
