@@ -16,6 +16,8 @@ This app is intended to allow users to search for current deals on products they
     * The submit button of the dialog will be disabled until you type in a valid credit card
 4. **Dark Mode Support!**
     * Added simple themes to leverage Android support of dark mode and created specific colors for use in dark mode
+5. **Motion (Still in Progress)**
+    * This feature is not finished yet, but initial MotionLayout implementation on the Deal Item screen can be found in the `motion` branch
 
 ## Libraries/APIs Used
 
